@@ -2,35 +2,57 @@
 <html>
 <head>
   <style>
-div {
+.box {
   height: 50px; width: 50px;
   float: left; margin-right: 10px;
   display: none; background-color: #090;
 }
 </style>
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="https://raw.github.com/kriskowal/q/master/q.js"></script>
 </head>
 <body>
 
 <button>Go</button>
 <p>Ready...</p>
-<div></div>
-<div></div>
-<div></div>
-<div></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+
+<div id="mine"></div>
 
 <script>
 $("button").on( "click", function() {
   $("p").append( "Started...");
 
-  $("div").each(function( i ) {
+  $(".box").each(function( i ) {
     $( this ).fadeIn().fadeOut( 1000 * (i+1) );
   });
 
-  $( "div" ).promise().done(function() {
+  $( ".box" ).promise().done(function() {
     $( "p" ).append( " Finished! " );
   });
 });
+
+
+function sleep(seconds) {
+	var start = new Date().getTime();
+	while(1)
+		if ((new Date().getTime() - start) > seconds * 1e3)
+			break;
+}
+
+function sleep3Seconds() {
+	sleep(3);
+};
+var updateDiv = function() {
+	$('#mine').append("Slept!");
+};
+
+Q.fcall(sleep3Seconds)
+.then(updateDiv).done();
+
 </script>
 </body>
 </html>
