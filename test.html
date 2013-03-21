@@ -43,15 +43,29 @@ function sleep(seconds) {
 			break;
 }
 
+function randomException() {
+	var rand = Math.random();
+	if (rand > 0.5) {
+		throw new Error("rand ("+String(rand)+") was greater than 0.5");
+	}
+	return rand;
+}
+
 function sleep3Seconds() {
-	sleep(3);
-};
-var updateDiv = function() {
-	$('#mine').append("Slept!");
+	sleep(1);
 };
 
+var updateDiv = function(value) {
+	$('#mine').append("Slept! (rand was "+value+")");
+};
+
+function handleException(reason) {
+	$('#mine').append("Got exception with text '"+reason+"'");
+}
+
 Q.fcall(sleep3Seconds)
-.then(updateDiv).done();
+.then(randomException)
+.then(updateDiv, handleException).done();
 
 </script>
 </body>
