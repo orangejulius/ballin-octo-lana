@@ -1,15 +1,20 @@
-<p id="notice"><%= notice %></p>
+<script type="text/template" id="thing-show-template">
+	<p>
+		<b>Number:</b>
+		<%%= number %>
+	</p>
 
-<p>
-  <b>Number:</b>
-  <%= @thing.number %>
-</p>
+	<p>
+		<b>String:</b>
+		<%%= string %>
+	</p>
 
-<p>
-  <b>String:</b>
-  <%= @thing.string %>
-</p>
+	<%= link_to 'Edit', edit_thing_path(@thing) %> |
+	<%= link_to 'Back', things_path %>
+</script>
 
+<script type="text/javascript">
+	var thing_id = <%= @thing.id %>;
+</script>
 
-<%= link_to 'Edit', edit_thing_path(@thing) %> |
-<%= link_to 'Back', things_path %>
+<div id="show-container"></div>
