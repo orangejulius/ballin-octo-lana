@@ -1,4 +1,4 @@
 class BOL.Thing extends Backbone.Model
-	url: 'things'
+	urlRoot: '/things'
 	twiceString: ->
 		return @string + @string
