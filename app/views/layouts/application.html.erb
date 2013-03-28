@@ -10,5 +10,28 @@
 
 <%= yield %>
 
+<script type="text/template" id="thing-show-template">
+	<p>
+		<b>Number:</b>
+		<%%= number %>
+	</p>
+
+	<p>
+		<b>String:</b>
+		<%%= string %>
+	</p>
+
+	<%= link_to 'Edit', edit_thing_path(@thing) %> |
+	<%= link_to 'Back', things_path %>
+</script>
+
+<script type="text/template" id="new-thing-template">
+  <form id="new-thing-form">
+    Number: <input type="text" name="number" id="thing-number"></br>
+    String: <input type="text" name="string" id="thing-string">
+  </form>
+  <input type="submit" id="new-thing-submit" />
+</script>
+
 </body>
 </html>
