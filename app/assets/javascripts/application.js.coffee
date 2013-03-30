@@ -7,7 +7,3 @@
 #= require_tree ./routers
 #= require_self
 #= require home
-
-window.BOL.init =  ->
-    new window.BOL.ThingsRouter
-    Backbone.history.start()
