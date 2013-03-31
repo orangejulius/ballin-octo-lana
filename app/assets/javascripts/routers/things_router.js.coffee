@@ -1,5 +1,5 @@
 class window.BOL.ThingsRouter extends Backbone.Router
-  routes =
+  routes:
     "things/:id": "edit",
     "": "index",
     "new": "newThing"
@@ -12,7 +12,7 @@ class window.BOL.ThingsRouter extends Backbone.Router
          window.location.hash = '#'
     )
 
-  index:
+  index: ->
     $.getJSON('/things', (data)->
       if(data)
         things = _(data).map( (i)->
