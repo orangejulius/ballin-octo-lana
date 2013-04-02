@@ -6,7 +6,7 @@ class window.BOL.ThingIndexView extends Backbone.View
 
   render: ->
     out = "<h1>Things</h1>"
-    _(@things).each( (thing)->
+    @things.each( (thing)->
       out += thing.id + " " + thing.escape('number') + " "
       out += thing.escape('string') + "<br>"
     )
