@@ -13,11 +13,4 @@ class window.BOL.ThingsRouter extends Backbone.Router
     )
 
   index: ->
-    $.getJSON('/things', (data)->
-      if(data)
-        things = _(data).map( (i)->
-          return new window.BOL.Thing(i))
-        new window.BOL.ThingIndexView({things: things})
-      else
-        new Error({ message: "Error loading things." })
-    )
+    new window.BOL.ThingIndexView()
