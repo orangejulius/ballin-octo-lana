@@ -1,6 +1,7 @@
 class window.BOL.ShowThingView extends Backbone.View
   initialize: ->
     @listenTo(@model, "change", @render)
+    @render()
 
   render: ->
     template_script = $('#thing-show-template')
