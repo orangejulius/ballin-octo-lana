@@ -6,6 +6,17 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
+<script type="text/template" id="thing-show-template">
+	<p>
+		<b>Number:</b>
+		<%%= number %>
+	</p>
+
+	<p>
+		<b>String:</b>
+		<%%= string %>
+	</p>
+</script>
 <body>
 
 <%= yield %>
