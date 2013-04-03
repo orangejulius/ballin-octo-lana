@@ -4,9 +4,11 @@ class window.BOL.ThingsRouter extends Backbone.Router
     "": "index",
     "new": "newThing"
 
-  edit: (id) ->
-    thing = new window.BOL.Thing
+  edit: (id)->
+    thing = new window.BOL.Thing({id: id})
     thing.fetch(
+      success: ->
+        new window.BOL.ShowThingView({model: thing, el: $('body')})
       error: ->
          new Error( message: 'Could not find that thing.' )
          window.location.hash = '#'
